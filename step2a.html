@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap" rel="stylesheet">
+    <title>Accompanied driving monitoring application</title>
+    <style>
+        /* Reset and base styles  */
+        * {
+            padding: 0px;
+            margin: 0px;
+            border: none;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+        }
+
+        /* Links */
+
+        a, a:link, a:visited  {
+            text-decoration: none;
+        }
+
+        a:hover  {
+            text-decoration: none;
+        }
+
+        /* Common */
+
+        aside, nav, footer, header, section, main {
+            display: block;
+        }
+
+        h1, h2, h3, h4, h5, h6, p {
+            font-size: inherit;
+            font-weight: inherit;
+        }
+
+        ul, ul li {
+            list-style: none;
+        }
+
+        img {
+            vertical-align: top;
+        }
+
+        img, svg {
+            max-width: 100%;
+            height: auto;
+        }
+
+        address {
+        font-style: normal;
+        }
+
+        /* Form */
+
+        input, textarea, button, select {
+            font-family: inherit;
+            font-size: inherit;
+            color: inherit;
+            background-color: transparent;
+        }
+
+        input::-ms-clear {
+            display: none;
+        }
+
+        button, input[type="submit"] {
+            display: inline-block;
+            box-shadow: none;
+            background-color: transparent;
+            background: none;
+            cursor: pointer;
+        }
+
+        input:focus, input:active,
+        button:focus, button:active {
+            outline: none;
+        }
+
+        button::-moz-focus-inner {
+            padding: 0;
+            border: 0;
+        }
+
+        label {
+            cursor: pointer;
+        }
+
+        legend {
+            display: block;
+        }
+
+        /* CODE */
+
+        /* HEADER */
+
+        *{
+            font-family: Nunito Sans;
+        }
+
+        header{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            background-color: #ffccf6;
+            margin-bottom: 15px;
+        }
+
+        .title{
+            font-family: Nunito Sans;
+            font-weight: 700;
+            font-size: 2rem;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* FORM HOLDER */
+
+        .holder {
+            background-color: antiquewhite;
+            max-width: 600px;
+            width: 100%;
+            padding: 20px; 
+            border-radius: 20px;
+            border: 2px solid brown;
+        }
+
+        label{
+            display: block;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .departure_time, .arrival_time{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .center{
+            display: flex;
+            justify-content: center;
+        }
+
+        .info{
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        input, select{
+            border: 2px solid black;
+            padding: 10px 20px;
+            border-radius: 15px;
+        }
+
+        .date, .kms, .weather, .traffic, .road{
+            gap: 20px;
+        }
+
+        .time{
+            justify-content: space-between;
+        }
+
+        .submit_btn{
+            background-color: cadetblue;
+            padding: 12px 40px;
+            border-radius: 15px;
+            color: rgb(255, 255, 255);
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+
+        main{
+            margin-bottom: 50px;
+        }
+
+        #kms{
+            max-width: 80px;
+        }
+
+        /* FOOTER */
+
+        footer{
+            background-color: cornflowerblue;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .copyright_link, .privacy_link{
+            color: #fff;
+        }
+
+        .privacy, .copyright{
+            text-align: center;
+        }
+
+
+        .privacy{
+            margin-bottom: 10px;
+        }
+
+        /* MEDIA */
+
+        @media (max-width: 420px) {
+            .title{
+                font-size: 1.7rem;
+            }
+        }
+
+        @media (max-width:300px) {
+            .date, .kms, .weather, .traffic, .road, .arrival_time, .departure_time{
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="title">
+                Accompanied driving monitoring application
+            </h1>
+        </div>
+    </header>
+    <main>
+        <div class="container center">
+            <div class="holder">
+                <form method="get" class="form">
+                    <div class="info date">
+                        <label for="date">Date</label>
+                        <input type="date" name="date" id="date" required>
+                    </div>
+                    <div class="info departure_time">
+                        <label for="departure_time">Departure Time</label>
+                        <input type="time" name="departure_time" id="departure_time" required>
+                    </div>
+                    <div class="info arrival_time">
+                        <label for="arrival_time">Arrival Time</label>
+                        <input type="time" name="arrival_time" id="arrival_time" required>
+                    </div>
+                    <div class="info kms">
+                        <label for="kms">Kilomenters</label>
+                        <input type="number" name="kms" id="kms" required>
+                    </div>
+                    <div class="info weather">
+                        <label for="weather">Weather</label>
+                        <select name="weather" id="weather" required>
+                            <option value="">SELECT</option>
+                            <option value="1">Sunny</option>
+                            <option value="2">Cloudy</option>
+                            <option value="3">Rainy</option>
+                            <option value="4">Foggy</option>
+                            <option value="5">Snowy</option>
+                        </select>
+                    </div>
+                    <div class="info traffic">
+                        <label for="traffic">Traffic</label>
+                        <select name="traffic" id="traffic" required>
+                            <option value="">SELECT</option>
+                            <option value="1">No traffic</option>
+                            <option value="2">Light traffic</option>
+                            <option value="3">Normal traffic</option>
+                            <option value="4">Heavy traffic</option>
+                        </select>
+                    </div>
+                    <div class="info road">
+                        <label for="road">Road</label>
+                        <select name="road" id="road" required>
+                            <option value="">SELECT</option>
+                            <option value="1">Asphalt</option>
+                            <option value="2">Dirt</option>
+                            <option value="3">Ice</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="submit_btn">
+                        SUBMIT
+                    </button>
+                </form>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="container center">
+            <div class="footer_info">
+                <div class="privacy">
+                    <a href="#" class="privacy_link">
+                        Privacy Policy | TERMS OF USE
+                    </a>
+                </div> 
+                <div class="copyright">
+                    <a href="#" class="copyright_link">
+                        Copyright &copy; 2024 Askarov Nadir
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
